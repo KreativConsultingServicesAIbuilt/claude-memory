@@ -1,10 +1,29 @@
 # Claude Memory — Universal Context
 
-This repo is the single source of truth for Claude across all devices,
-apps and chats. Start any new chat with:
+## How to use this repo
 
-> "Read CLAUDE.md from KreativConsultingServicesAIbuilt/claude-memory
-> on GitHub before doing anything else."
+### Starting a new chat (any device, any app)
+Paste this at the start of every new chat:
+
+> "Fetch and read CLAUDE.md from KreativConsultingServicesAIbuilt/claude-memory
+> on GitHub. Follow all instructions in it, and update it at the end of
+> our session if anything changed."
+
+### One-time setup on a new machine (Claude Code CLI)
+Run this once to make it automatic — Claude Code will then load this
+memory at the start of every session without being asked:
+
+```bash
+mkdir -p ~/.claude && cat > ~/.claude/CLAUDE.md << 'EOF'
+# Global Claude Instructions
+
+At the start of every session, fetch and read:
+https://github.com/KreativConsultingServicesAIbuilt/claude-memory/blob/main/CLAUDE.md
+
+This file contains all project context, conventions and preferences.
+Do this before any other action.
+EOF
+```
 
 ---
 
@@ -52,8 +71,8 @@ Update it at the end of every development session before closing out.
 
 ---
 
-## pmset settings (MacBook Pro — car dashboard machine)
-Applied once with sudo, persist across reboots:
+## MacBook Pro — persistent pmset settings
+Applied once with sudo via car-dashboard/setup.sh:
 ```
 acwake=1, hibernatemode=25, standby=0
 proximitywake=0, womp=0, tcpkeepalive=0, ttyskeepawake=0
@@ -61,5 +80,11 @@ proximitywake=0, womp=0, tcpkeepalive=0, ttyskeepawake=0
 `proximitywake=0` is critical — iPhone proximity was waking Mac after hibernate.
 
 ---
+
+## Maintenance instructions for Claude
+When ending any session where something changed:
+1. Update the relevant project entry above
+2. Update "Last updated" below
+3. Commit and push: `cd /Users/dialuxdator/claude-memory && git add CLAUDE.md && git commit -m "Update memory: <what changed>" && git push`
 
 ## Last updated: 2026-04-15
