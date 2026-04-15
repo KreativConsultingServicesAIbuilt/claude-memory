@@ -66,7 +66,8 @@ Update it at the end of every development session before closing out.
 **What:** Tesla-style web dashboard for Citroën DS5  
 **Stack:** Python (Flask) + vanilla JS/CSS  
 **Hardware:** MacBook Pro + CX101 touchscreen (1280×800)  
-**Status:** Power management fixed, zoom slider added, end-to-end car test pending  
+**Status:** Wake flag fix applied — daemon now survives SIGTERM during hibernate.
+Desktop hibernate/wake cycle confirmed working. End-to-end car test pending.  
 → See CLAUDE.md in that repo for full detail
 
 ---
